@@ -25,6 +25,29 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+  // Adiciona valor no inicia da lista
+  prepend(value) {
+    const newNode = {
+      value: value,
+      next: null,
+      prev: null
+    }
+    newNode.next = this.head;
+    this.head.prev = newNode
+    this.head = newNode;
+    this.length++;
+    return this;
+  }
+  // Retorna a lista em um array
+  printList() {
+    const array = [];
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      array.push(currentNode.value)
+      currentNode = currentNode.next
+    }
+    return array;
+  }
 }
 
 let myLinkedList = new DoublyLinkedList(10);

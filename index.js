@@ -48,7 +48,31 @@ class DoublyLinkedList {
     }
     return array;
   }
+  // Inserir em determinado local na lista
+  insert(index, value) {
+    if (index >= this.length) {
+      return this.append(value);
+    }
 
+    const newNode = {
+      value: value,
+      next: null,
+      prev: null
+    }
+
+    // Salva o valor do index e o seguinte
+    const leader = this.traverseToIndex(index - 1);
+    const follower = leader.next;
+
+    leader.next = newNode;
+    newNode.prev = leader;
+    newNode.next = follower;
+    follower.prev = newNode;
+
+    this.length++;
+    console.log(this)
+    return this.toArray();
+  }
   // Caminha até o index desejado
   traverseToIndex(index) {
     let counter = 0;

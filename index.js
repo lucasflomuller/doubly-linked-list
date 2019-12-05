@@ -39,7 +39,7 @@ class DoublyLinkedList {
     return this;
   }
   // Retorna a lista em um array
-  printList() {
+  toArray() {
     const array = [];
     let currentNode = this.head;
     while (currentNode !== null) {

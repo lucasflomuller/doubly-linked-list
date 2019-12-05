@@ -48,6 +48,17 @@ class DoublyLinkedList {
     }
     return array;
   }
+
+  // Caminha até o index desejado
+  traverseToIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
 }
 
 let myLinkedList = new DoublyLinkedList(10);
